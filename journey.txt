@@ -1,0 +1,16 @@
+Welcome to my journey of creating a 3DS browser capable of running Discord
+First, let me create a roadmap, me 24.03.2023 20:43 
+-hello world
+-Downloading modern pages
+-Creating a super simple dark mode rendering engine html
+-css...
+-Rendering a locally hosted very simple page from my server
+-JavaScript interpreter
+-Rendering a more complex site, like 3ds.hacks.guide
+-Cookies
+-Discord? 
+-Profit
+
+First, I need a source folder, and a working makefile.
+Ill take the makefile from a 3ds-example, noone will care
+also i will use 3dslink for testing, so ill set that up as well
