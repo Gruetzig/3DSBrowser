@@ -3,7 +3,7 @@ First, let me create a roadmap, me 24.03.2023 20:43
 -hello world
 -Downloading modern pages
 -Creating a super simple dark mode rendering engine html
--css...
+-simple css...
 -Rendering a locally hosted very simple page from my server
 -JavaScript interpreter
 -Rendering a more complex site, like 3ds.hacks.guide
@@ -13,4 +13,7 @@ First, let me create a roadmap, me 24.03.2023 20:43
 
 First, I need a source folder, and a working makefile.
 Ill take the makefile from a 3ds-example, noone will care
-also i will use 3dslink for testing, so ill set that up as well
+also i will use 3dslink for testing, so ill set that up as well, and my new 3DS since that one is the only one im not destroying every day.
+Next, ill create a simple main.c where I want to draw a hello world with citro2d. Citro2D is supposed to be my rendering shit, hope it works decently, ill take code from my basehaxx_sploit_instlaler for now. 
+
+first done, me 24.03.2023 21:31, simple hello world, will commit now
