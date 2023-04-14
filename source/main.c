@@ -7,17 +7,19 @@ int main(int argc, char* argv[])
     consoleInit(GFX_TOP, NULL);
     initSocket();
     int ret = 0;
-    char* site = "www.google.com";
+    char* site = "www.gruetzig.dev";
     char* path = "/";
-    char* response = "nope";
+    char* response;
+    response = malloc(8192);
     unsigned int len = 0;
     ret = http_get(site, path, response, &len);
     if (ret != -1) { 
-        printf("response: %s", response);
+        printf("response: %s\n", response);
     }else{
-        printf("fail lol %d", ret);
+        printf("fail lol %d\n", ret);
     }
     printf("nice");
+    free(response);
     while (aptMainLoop())
     {
         gspWaitForVBlank();

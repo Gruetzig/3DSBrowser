@@ -82,16 +82,18 @@ int http_get(char* page, char* path, char* output, size_t *outputsize) {
     }
     free(request);
     wait("send success\n");
-    char response[8192];
+    char *response;
+    response = malloc(8192);
     int bytes_received;
-    bytes_received = recv(sockfd, response, sizeof(response), 0);
+    bytes_received = recv(sockfd, response, 8192, 0);
     if (bytes_received < 0) {
         closesocket(sockfd);
         return -1;
     }
     wait("recv success\n");
     *outputsize = strlen(response);
-    output = response;
+    memcpy(output, response, 8192);
+    free(response);
     close(sockfd);
     wait("close success\n");
     return 0;
