@@ -1,6 +1,9 @@
+((((syntax shit
+
+me 24.03.2023 20:43 
 Welcome to my journey of creating a 3DS browser capable of running Discord
-First, let me create a roadmap, me 24.03.2023 20:43 
--hello world
+First, let me create a roadmap, 
+-hello world [DONE]
 -Downloading modern pages
 -Creating a super simple dark mode rendering engine html
 -simple css...
@@ -12,8 +15,27 @@ First, let me create a roadmap, me 24.03.2023 20:43
 -Profit
 
 First, I need a source folder, and a working makefile.
-Ill take the makefile from a 3ds-example, noone will care
+Ill take the makefile from a 3ds-example, noone will care :)
 also i will use 3dslink for testing, so ill set that up as well, and my new 3DS since that one is the only one im not destroying every day.
 Next, ill create a simple main.c where I want to draw a hello world with citro2d. Citro2D is supposed to be my rendering shit, hope it works decently, ill take code from my basehaxx_sploit_instlaler for now. 
 
-first done, me 24.03.2023 21:31, simple hello world, will commit now
+me 24.03.2023 21:31
+first done, simple hello world, will commit now
+
+me 03.04.2023 19:08
+I informed myself about sockets and networking in C. The best information I got from https://beej.us/guide/bgnet/, thank you very much :)
+looks like ill have to resolve the ip using getaddrinfo() before connecting to the domain with connect and doing a simple "GET / HTTP/1.1\r\n\r\n"
+
+me 03.04.2023 21:57
+I decided to do a request with connection: close and host: page for now, hopefully nothing breaks yet :) 
+I am using mozillas doc to figure some things out :)
+next ill recv the response, time to look at that lol
+me 14.04.2023 22:59
+I decided to debug my code with a wait function, and, after finding out I have to allocate memory for the request, It all worked.
+But when poking at www.google.com, the response was, uhm, "nopenice". I have no idea what thats supposed to mean lmao
+Will commit anyway, just to be sure 
+
+me 14.04.2023 23:36
+Turns out nopenice is a combination of nope and nice, two debugging strings in my code
+I got a working get request, for real for real. im proud of me ngl...
+Also i fucked around with reverting so i had to add all this back

@@ -73,7 +73,7 @@ int http_get(char* page, char* path, char* output, size_t *outputsize) {
     //send the request
     int bytes_sent;
     request = malloc(1024);
-    getrequest(path, page);
+    getrequest(page, path);
     wait("getrequestgenerator success\n");
     bytes_sent = send(sockfd, request, strlen(request)+1, 0);
     if (bytes_sent < 0) {
