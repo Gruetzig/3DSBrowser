@@ -16,19 +16,20 @@ int exitTags() {
     free(tags);
 }
 
-int checkTagBeginning(char* string, int starting_point) { //when < detected it will check for a matching tag, and return the result
+int checkforTag(char* string, int starting_point, bool ending) { 
     /*
     my magics note:
     -the first " " will end the search, e.g. <a href> where a is all i need, or classes after <p I will understand when I re-read
     -The way ill do this is probably inefficient but has to be enough for now, maybe ill implement some sort of algorithm at some point
+    -ending is true/false, like defined, the second [] defines start/end
     */
     for (int i = 0;i < 3;i++) { //the number will be hardcoded for the amount of tags I implemented, currently 3
-        for (int j = 0;j < strlen(tags[i][0])-1;j++) {
-            if (string[starting_point+j] == ' ' && tags[i][0][j] == '>') {
+        for (int j = 0;j < strlen(tags[i][ending])-1;j++) {
+            if (string[starting_point+j] == ' ' && tags[i][ending][j] == '>') {
                 return i;
-            } else if (string[starting_point+j] == '>' && tags[i][0][j] == '>') {
+            } else if (string[starting_point+j] == '>' && tags[i][ending][j] == '>') {
                 return i;
-            } else if (string[starting_point+j] != tags[i][0][j]) {
+            } else if (string[starting_point+j] != tags[i][ending][j]) {
                 break;
             }
         }
@@ -37,3 +38,5 @@ int checkTagBeginning(char* string, int starting_point) { //when < detected it w
     if (starting_point == '<') return TAG_CUSTOM;
     return -1;
 }
+
+
