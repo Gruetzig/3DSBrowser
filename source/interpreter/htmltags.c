@@ -1,4 +1,4 @@
-#include "tags.h"
+#include "htmltags.h"
 
 
 int initTags() {

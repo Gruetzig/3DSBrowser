@@ -42,3 +42,7 @@ Also i fucked around with reverting so i had to add all this back
 
 me 15.04.2023 14:41
 Im deciding to make my project public. No real reason, though
+
+me 15.04.2023 17:20 
+I started my own rendering engine. For now, I implemented the reading of tags, probably to be used in a for loop as soon as you find <
+I will add the doctype tag, a and p tag, and then start with css/style tag
