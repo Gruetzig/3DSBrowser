@@ -2,11 +2,11 @@
 #include <string.h>
 #include <stdio.h>
 
-void ***tags;
+char ***tags;
 
 typedef enum {
     TAG_BODY,
     TAG_HEAD,
     TAG_DIV,
-    TAG_
+    TAG_CUSTOM,
 };
