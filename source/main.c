@@ -7,10 +7,10 @@ int main(int argc, char* argv[])
     consoleInit(GFX_TOP, NULL);
     initSocket();
     int ret = 0;
-    char* site = "www.gruetzig.dev";
+    char* site = "www.example.com";
     char* path = "/";
     char* response;
-    response = malloc(8192);
+    response = malloc(1024*16);
     unsigned int len = 0;
     ret = http_get(site, path, response, &len);
     if (ret != -1) { 

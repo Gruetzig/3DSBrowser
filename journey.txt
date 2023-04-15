@@ -39,3 +39,6 @@ me 14.04.2023 23:36
 Turns out nopenice is a combination of nope and nice, two debugging strings in my code
 I got a working get request, for real for real. im proud of me ngl...
 Also i fucked around with reverting so i had to add all this back
+
+me 15.04.2023 14:41
+Im deciding to make my project public. No real reason, though
