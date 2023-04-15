@@ -9,7 +9,6 @@ int initTags() {
     sprintf(tags[1][1], "</body>");
     sprintf(tags[2][0], "<div>");
     sprintf(tags[2][2], "</div");
-    //tags[3] is defined as custom with / ending!
 }
 
 int exitTags() {
@@ -35,7 +34,6 @@ int checkforTag(char* string, int starting_point, bool ending) {
         }
 
     }
-    if (starting_point == '<') return TAG_CUSTOM;
     return -1;
 }
 

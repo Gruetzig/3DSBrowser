@@ -9,5 +9,4 @@ typedef enum {
     TAG_BODY,
     TAG_HEAD,
     TAG_DIV,
-    TAG_CUSTOM,
 };
