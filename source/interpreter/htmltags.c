@@ -3,12 +3,16 @@
 
 int initTags() {
     tags = malloc(1024*16);
+    if (tags == NULL) {
+        return -1;
+    }
     sprintf(tags[0][0], "<head>");
     sprintf(tags[0][1], "</head>");
     sprintf(tags[1][0], "<body>");
     sprintf(tags[1][1], "</body>");
     sprintf(tags[2][0], "<div>");
     sprintf(tags[2][2], "</div");
+    return 0;
 }
 
 int exitTags() {

@@ -26,7 +26,7 @@ int exitSocket() {
 }
 
 void getrequest(char* page, char* path) {
-    sprintf(request, "GET %s HTTP/1.1\r\nHost: %s\r\nAccept-Encoding: gzip\r\nConnection: close\r\n\r\n", path, page);
+    sprintf(request, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", path, page);
 }
 
 int http_get(char* page, char* path, char* output, size_t *outputsize) {
@@ -42,14 +42,14 @@ int http_get(char* page, char* path, char* output, size_t *outputsize) {
         freeaddrinfo(res);
         return -1;
     }
-    wait("getaddrinfo success\n");
+    waitf("getaddrinfo success\n");
     //create socket
     sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
     if (sockfd < 0) {
         freeaddrinfo(res);
         return -1;
     }
-    wait("socket success\n");
+    waitf("socket success\n");
     //connect to site
     ret = connect(sockfd, res->ai_addr, res->ai_addrlen);
     if (ret != 0) {
@@ -57,21 +57,21 @@ int http_get(char* page, char* path, char* output, size_t *outputsize) {
         closesocket(sockfd);
         return -1;
     }
-    wait("connect success\n");
+    waitf("connect success\n");
     freeaddrinfo(res);
     
     //send the request
     int bytes_sent;
     request = malloc(1024);
     getrequest(page, path);
-    wait("getrequestgenerator success\n");
+    waitf("getrequestgenerator success\n");
     bytes_sent = send(sockfd, request, strlen(request)+1, 0);
     if (bytes_sent < 0) {
         closesocket(sockfd);
         return -1;
     }
     free(request);
-    wait("send success\n");
+    waitf("send success\n");
     char *response;
     response = malloc(1024*16);
     int bytes_received;
@@ -80,12 +80,12 @@ int http_get(char* page, char* path, char* output, size_t *outputsize) {
         closesocket(sockfd);
         return -1;
     }
-    wait("recv success\n");
+    waitf("recv success\n");
     *outputsize = strlen(response);
     memcpy(output, response, 1024*16);
     free(response);
     close(sockfd);
-    wait("close success\n");
+    waitf("close success\n");
     return 0;
     
 

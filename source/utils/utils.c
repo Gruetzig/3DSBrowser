@@ -1,6 +1,6 @@
 #include "utils.h"
 
-void wait(const char* string) {
+void waitf(const char* string) {
     printf(string);
     while (1) {
         hidScanInput();

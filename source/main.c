@@ -14,10 +14,10 @@ int main(int argc, char* argv[])
     unsigned int len = 0;
     ret = http_get(site, path, response, &len);
     if (ret != -1) { 
-        FILE *fp = fopen("sdmc:/text.txt", "wb");
+        /*FILE *fp = fopen("sdmc:/text.txt", "wb");
         fwrite(response, strlen(response), 1024*4, fp);
-        fclose(fp);
-        //printf(response);
+        fclose(fp);*/
+        printf(response);
     }else{
         printf("fail lol %d\n", ret);
     }
