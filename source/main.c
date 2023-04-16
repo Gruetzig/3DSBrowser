@@ -1,6 +1,6 @@
-#include "ui.h"
+#include "renderer/ui.h"
 #include <3ds.h>
-#include "http.h"
+#include "networking/http.h"
 int main(int argc, char* argv[])
 {
     gfxInitDefault();
@@ -14,7 +14,10 @@ int main(int argc, char* argv[])
     unsigned int len = 0;
     ret = http_get(site, path, response, &len);
     if (ret != -1) { 
-        printf("response: %s\n", response);
+        FILE *fp = fopen("sdmc:/text.txt", "wb");
+        fwrite(response, strlen(response), 1024*4, fp);
+        fclose(fp);
+        //printf(response);
     }else{
         printf("fail lol %d\n", ret);
     }

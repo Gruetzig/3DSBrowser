@@ -2,16 +2,6 @@
 
 char* request;
 
-void wait(const char* string) {
-    printf(string);
-    while (1) {
-        hidScanInput();
-        u32 kdown = hidKeysDown();
-        if (kdown & KEY_A) {
-            break;
-        }
-    }
-}
 int initSocket() {
     Result ret=0;
     u32 *soc_sharedmem, soc_sharedmem_size = 0x100000;
@@ -36,7 +26,7 @@ int exitSocket() {
 }
 
 void getrequest(char* page, char* path) {
-    sprintf(request, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", path, page);
+    sprintf(request, "GET %s HTTP/1.1\r\nHost: %s\r\nAccept-Encoding: gzip\r\nConnection: close\r\n\r\n", path, page);
 }
 
 int http_get(char* page, char* path, char* output, size_t *outputsize) {

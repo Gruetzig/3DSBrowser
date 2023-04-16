@@ -9,6 +9,7 @@
 #include <netdb.h>
 #include <string.h>
 #include <unistd.h>
+#include "../utils/utils.h"
 
 int initSocket();
 int exitSocket();
