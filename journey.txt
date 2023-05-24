@@ -1,4 +1,4 @@
-(((((syntax shit
+((((((syntax shit
 
 me 24.03.2023 20:43 
 Welcome to my journey of creating a 3DS browser capable of running Discord
@@ -52,3 +52,16 @@ I worked on a few header interpretations, made a few simple header structs Id th
 I also created a utils directory, and moved some funcs there. I also made a new stringsplit function from chatgpt, of course, locally tested first!
 Almost
 Lets hope it all works out in the end :)
+
+me 19.04.2023 23:14
+I will try the html + css interpreter at once this time. 
+
+me 20.04.2023 18:17 (OMG 4/20)
+I'm theorizing!
+-site struct
+-make for loop where I check for html whenever body[i] == '<'
+-make while(body[] != '<'); loop to find the next tag should be body or head
+-if head is found, for loop to the head ending, add title tag content to site struct, add size of head to i, 
+
+me 24.05.2023 23.21 
+I started working on the rendering process again :)

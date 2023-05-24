@@ -32,8 +32,11 @@ int splitResponse(char* response_in, response_raw *response_out) {
     free(response);
     return 0;
 }
-
+size_t getResponseActuallyMaxSize(response_raw *response_in) {
+    return sizeof(response_in)*2;
+}
 int fillHeaderStruct(response_raw *response_in, response_actually *response_out) {
+    bool encoded = false;
     char header[strlen(response_in->headers)];
     strcpy(header, response_in->headers); 
     char *token = strtok(header, "\n");
@@ -53,8 +56,9 @@ int fillHeaderStruct(response_raw *response_in, response_actually *response_out)
         }
         if (strcmp(out1, "Content-Encoding:") == 0) {
             strcpy(response_out->content_encoding, out2);
+            encoded = true;
         } else if (strcmp(out1, "Content-Length:") == 0) {
-            strcpy(response_out->content_length_encrypted, out2);
+            response_out->content_length_encrypted = atoi(out2);
         } else if (strcmp(out1, "Content-Type:") == 0) {
             char _out1[strlen(out2)];
             char _out2[strlen(out2)];
@@ -71,10 +75,16 @@ int fillHeaderStruct(response_raw *response_in, response_actually *response_out)
     }
     
     strcpy(response_out->body_encrypted, response_in->body); //copy body over
+    if (!encoded) {
+        strcpy(response_out->content_encoding, "none"); //make sure encoding is present
+    }
     return 0;
 }
 
-int decryptBody(response_actually* responseStruct) {
+int decodeBody(response_actually* responseStruct) {
+    if (strcmp(responseStruct->content_encoding, "none")) {
+        return -2; //not encoded lol
+    }
 
     return 0;
 }
